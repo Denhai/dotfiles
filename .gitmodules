@@ -1,0 +1,15 @@
+[submodule "nvm"]
+	path = nvm
+	url = https://github.com/nvm-sh/nvm
+[submodule "fzf"]
+	path = fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "fish/z"]
+	path = fish/z
+	url = git@github.com:jethrokuan/z.git
+[submodule "fish/pure"]
+	path = fish/pure
+	url = git@github.com:rafaelrinaldi/pure.git
+[submodule "fish/bass"]
+	path = fish/bass
+	url = git@github.com:edc/bass.git

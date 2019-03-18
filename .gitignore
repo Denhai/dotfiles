@@ -1,0 +1,12 @@
+**/.DS_Store
+
+vim/.netrwhist
+fish/fishd*
+fish/fish_history
+fish/fish_variables
+fish/secrets.fish
+
+# symlinked and installed functions
+fish/functions/**
+
+fonts/.uuid

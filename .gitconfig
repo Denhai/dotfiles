@@ -1,0 +1,74 @@
+[user]
+  name = Hayden
+  email = haybartlett@gmail.com
+[credential]
+  helper = cache
+[help]
+  autocorrect = 1
+[push]
+  # See `git help config` (search for push.default)
+  # for more information on different options of the below setting.
+  #
+  # Setting to git 2.0 default to suppress warning message
+  default = simple
+[pull]
+  rebase = true
+[core]
+  excludesfile = ~/.gitignore_global
+  editor = vim
+	commentchar = ";" # because commits are commonly prefixed with hash-issue number #1234
+  # editor = code --wait
+[alias]
+  a = add
+  aa = add --all
+  ac = !"git add . && git commit -a"
+  amend = commit --amend
+  b = branch
+  bd = branch -d
+  c = commit --verbose
+  ca = commit -a --verbose
+  co = checkout
+  cob = checkout -b
+  com = checkout master
+  d = diff
+  ds = diff --stat
+  l = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human
+  ls = ls-files
+  m = merge --ff-only
+  p = push
+	pf = push --force-with-lease
+  pl = !"git pull; git submodule foreach git pull origin master"
+  r = remote -v
+  s = status -sb
+  t = tag
+  td = tag --delete
+  tags = tag --sort=-creatordate
+
+  branch-name = rev-parse --abbrev-ref HEAD
+  diff-stat = diff --stat --ignore-space-change -r
+  publish = !"git push -u origin $(git branch-name)"
+  publish-auto-merge = !"git push -u origin $(git branch-name) -o merge_request.create -o merge_request.target=master -o merge_request.merge_when_pipeline_succeeds"
+  submodules = !git ls-files --stage | grep 160000
+
+  assume   = update-index --assume-unchanged
+  unassume = update-index --no-assume-unchanged
+  assume-all = "!git st -s | awk {'print $2'} | xargs git assume"
+  unassume-all = "!git assumed | xargs git update-index --no-assume-unchanged"
+  assumed  = !"git ls-files -v | grep ^h | cut -c 3-"
+
+  branches = branch -vv --sort=-committerdate
+  stashes = stash list
+
+  pruner = !git prune --expire=now && git reflog expire --expire-unreachable=now --rewrite --all
+  repacker = !git repack -a -d -f --depth=300 --window=300 --window-memory=1g
+	stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git stash store -m \"$2\" $rev; }; _"
+[protocol]
+	version = 2
+[rebase]
+  autosquash = true
+  abbreviateCommands = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# Delete all local branches that have been merged into HEAD. Stolen from
+#   https://stackoverflow.com/questions/6127328/how-can-i-delete-all-git-branches-which-have-been-merged
+
+MERGED=`git branch --merged master | grep -v '^*' | grep -v 'master'`
+TO_DELETE=`echo $MERGED | tr -d '\n'`
+echo "${MERGED}"
+
+echo "Delete branches (y/n)"
+read answer
+if echo "$answer" | grep -iq "^n" ;then
+    echo No
+else
+    git branch -d $TO_DELETE
+fi

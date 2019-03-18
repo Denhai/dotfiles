@@ -1,0 +1,2 @@
+#!/bin/bash
+git config user.email haydenfluid@gmail.com && git config user.name Hayden
