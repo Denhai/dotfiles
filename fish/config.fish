@@ -30,3 +30,6 @@ alias g git
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 command -sq starship; and starship init fish | source
+
+# Remove the greeting message
+set fish_greeting
