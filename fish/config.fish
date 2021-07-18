@@ -18,9 +18,9 @@ command -sq direnv; and eval (direnv hook fish)
 
 test -e ~/.config/fish/secrets.fish; and source ~/.config/fish/secrets.fish
 
-# `mine` contains the the functions that I've defined and want in source control.
+# `my_functions` contains the the functions that I've defined and want in source control.
 # .config/fish/functions just contains installed symlinks.
-set fish_function_path ~/.config/fish/mine $fish_function_path
+set fish_function_path ~/.config/fish/my_functions $fish_function_path
 
 # Setup z (autojump)
 set fish_function_path ~/.config/fish/z/functions $fish_function_path
