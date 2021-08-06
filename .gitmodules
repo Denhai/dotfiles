@@ -7,9 +7,6 @@
 [submodule "fish/z"]
 	path = fish/z
 	url = git@github.com:jethrokuan/z.git
-[submodule "fish/pure"]
-	path = fish/pure
-	url = git@github.com:rafaelrinaldi/pure.git
 [submodule "fish/bass"]
 	path = fish/bass
 	url = git@github.com:edc/bass.git
