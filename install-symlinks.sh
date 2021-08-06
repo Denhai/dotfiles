@@ -15,6 +15,13 @@ ln -snv ~/dotfiles/ssh_config ~/.ssh/config
 ln -snv ~/dotfiles/fish ~/.config/fish
 ln -snv ~/dotfiles/starship.toml ~/.config/starship.toml
 
+# imwheel systemd service
+mkdir -p ~/.config/systemd/user
+ln -snv ~/dotfiles/imwheel.service ~/.config/systemd/user/imwheel.service
+systemctl --user daemon-reload
+systemctl --user enable --now imwheel.service
+# journalctl --user --unit imwheel.service
+
 # Install fzf (this adds files to ~/.config/fish/functions) 
 ./fzf/install --key-bindings --completion --all
 

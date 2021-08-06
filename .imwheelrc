@@ -1,8 +1,10 @@
 # https://wiki.archlinux.org/index.php/Imwheel
-".*"
-None,      Up,   Button4, 3
-None,      Down, Button5, 3
-# Speed up scrolling but pass unchanged for zoom
+
+# Increase scroll distance when Chrome is focused
+".*-chrome*"
+None,      Up,   Button4, 5
+None,      Down, Button5, 5
+# But pass unchanged for zoom
 Control_L, Up,   Control_L|Button4
 Control_L, Down, Control_L|Button5
 Shift_L,   Up,   Shift_L|Button4

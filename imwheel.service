@@ -1,0 +1,16 @@
+[Unit]
+Description=IMWheel
+Wants=display-manager.service
+After=display-manager.service
+
+[Service]
+Type=simple
+Environment=XAUTHORITY=%h/.Xauthority
+# "4 5" scroll wheel only
+# https://wiki.archlinux.org/title/IMWheel#Back.2Fforward_buttons_not_working
+ExecStart=/usr/bin/imwheel -b "4 5" -d
+ExecStop=/usr/bin/pkill imwheel
+RemainAfterExit=yes
+
+[Install]
+WantedBy=graphical-session.target
