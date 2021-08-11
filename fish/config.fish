@@ -1,7 +1,8 @@
 # set -U fish_user_paths /usr/lib/go-1.9/bin $fish_user_paths
 # universal variables are saved in ~/.config/fish/fishd.(hostname)
 set GOPATH $HOME/go
-set POSSIBLE_PATH ~/bin ~/dotfiles/bin ~/dotfiles/fzf/bin ./node_modules/.bin ~/.local/bin ~/.rvm/bin $HOME/go $GOPATH/bin $HOME/.cargo/bin $HOME/.rvm/bin ~/Library/Android/sdk/platform-tools /home/linuxbrew/.linuxbrew/bin /home/linuxbrew/.linuxbrew/sbin
+set -x GEM_HOME $HOME/.ruby
+set POSSIBLE_PATH ~/bin ~/dotfiles/bin ~/dotfiles/fzf/bin ./node_modules/.bin ~/.local/bin ~/.rvm/bin $HOME/go $GOPATH/bin $HOME/.cargo/bin $HOME/.rvm/bin $GEM_HOME/bin ~/Library/Android/sdk/platform-tools /home/linuxbrew/.linuxbrew/bin /home/linuxbrew/.linuxbrew/sbin
 for p in $POSSIBLE_PATH
     if test -d $p
         set -x PATH $PATH $p

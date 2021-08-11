@@ -22,3 +22,5 @@ sudo apt install git
 
 # Install tldr
 command -v npm && npm install -g tldr
+
+gem install tmuxinator
