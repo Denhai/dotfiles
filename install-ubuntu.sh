@@ -24,3 +24,6 @@ sudo apt install git
 command -v npm && npm install -g tldr
 
 gem install tmuxinator
+
+# Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
