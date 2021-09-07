@@ -141,5 +141,6 @@ set GOPATH $HOME/go
 pathadd ~/bin
 pathadd ~/dotfiles/bin
 pathadd $GOPATH/bin
+pathadd ~/dotfiles/fzf/bin/fzf
 # other paths may be added by /etc/profile.d/*.sh
 . "$HOME/.cargo/env"
