@@ -16,7 +16,7 @@
 [core]
   excludesfile = ~/.gitignore_global
   editor = vim
-	commentchar = ";" # because commits are commonly prefixed with hash-issue number #1234
+  commentchar = ";" # because commits are commonly prefixed with hash-issue number #1234
   # editor = code --wait
 [alias]
   a = add
@@ -36,7 +36,7 @@
   ls = ls-files
   m = merge --ff-only
   p = push
-	pf = push --force-with-lease
+  pf = push --force-with-lease
   pl = !"git pull; git submodule foreach git pull origin master"
   r = remote -v
   s = status -sb
@@ -61,14 +61,14 @@
 
   pruner = !git prune --expire=now && git reflog expire --expire-unreachable=now --rewrite --all
   repacker = !git repack -a -d -f --depth=300 --window=300 --window-memory=1g
-	stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git stash store -m \"$2\" $rev; }; _"
+  stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git stash store -m \"$2\" $rev; }; _"
 [protocol]
-	version = 2
+  version = 2
 [rebase]
   autosquash = true
   abbreviateCommands = true
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true

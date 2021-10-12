@@ -1,5 +1,5 @@
 function c
-	if test (count $argv) -eq 0
+  if test (count $argv) -eq 0
     tree --dirsfirst -aFCNL 1 ./
     return
   end

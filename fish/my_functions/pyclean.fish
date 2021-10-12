@@ -1,5 +1,5 @@
 function pyclean --description 'Recursively clean directory from .pyc and .pyo files and python3 __pycache__ folders'
-	set -l pathToClean
+  set -l pathToClean
 
   if set -q $argv
     set pathToClean .
