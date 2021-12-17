@@ -143,4 +143,6 @@ pathadd ~/dotfiles/bin
 pathadd $GOPATH/bin
 pathadd ~/dotfiles/fzf/bin/fzf
 # other paths may be added by /etc/profile.d/*.sh
-. "$HOME/.cargo/env"
+if [ -f $HOME/.cargo/env ]; then
+    . "$HOME/.cargo/env"
+fi
