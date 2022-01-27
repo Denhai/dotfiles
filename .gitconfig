@@ -15,9 +15,8 @@
   rebase = true
 [core]
   excludesfile = ~/.gitignore_global
-  editor = vim
   commentchar = ";" # because commits are commonly prefixed with hash-issue number #1234
-  # editor = code --wait
+  editor = code --wait
 [alias]
   a = add
   aa = add --all
@@ -72,3 +71,5 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
+[merge]
+  conflictStyle = diff3
