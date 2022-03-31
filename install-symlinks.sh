@@ -28,3 +28,4 @@ systemctl --user enable --now imwheel.service
 # Symlink bass
 ln -snv ~/dotfiles/fish/bass/functions/__bass.py ~/.config/fish/functions
 ln -snv ~/dotfiles/fish/bass/functions/bass.fish ~/.config/fish/functions
+ln -snv ~/dotfiles/fish/z/functions/__z.fish ~/.config/fish/functions

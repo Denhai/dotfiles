@@ -13,7 +13,7 @@ sudo snap install starship
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt update
 sudo apt install fish
-chsh -s /usr/local/bin/fish
+chsh -s (which fish)
 
 # Add PPA for more recent git
 sudo apt-add-repository ppa:git-core/ppa
