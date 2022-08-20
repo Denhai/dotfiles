@@ -1,0 +1,29 @@
+# Major folders
+/.cache
+/.local/share/Trash
+/Downloads
+
+# JS
+node_modules
+.angular
+.parcel-cache
+.npm
+
+# Python
+.local/lib/python*
+.mypy_cache
+venv
+venv*
+
+# Chrome files
+.config/google-chrome/*/Service Worker/CacheStorage
+
+# Rust
+.cargo
+.rustup
+
+# Other
+.wine
+.minikube
+.steam
+.vscode/extensions
