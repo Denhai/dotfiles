@@ -12,8 +12,8 @@ if [ -e $BACKUP_PATH/$DAY ] ; then
   rm -rf $BACKUP_PATH/$DAY
 fi
 
-# -n --dry-run
-rsync -a --info=progress2 --delete -delete-excluded \
+# -n --dry-run --info=progress2
+rsync -a --stats --human-readable --delete -delete-excluded \
     --inplace --backup \
     --backup-dir=/media/hayden/nvme2/$DAY \
     --exclude-from=$parent_path/exclude.txt \
