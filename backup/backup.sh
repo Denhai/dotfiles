@@ -14,8 +14,7 @@ fi
 
 # -n --dry-run --info=progress2
 rsync -a --stats --human-readable --delete -delete-excluded \
-    --inplace --backup \
-    --backup-dir=/media/hayden/nvme2/$DAY \
+    --backup --backup-dir=/media/hayden/nvme2/$DAY \
     --exclude-from=$parent_path/exclude.txt \
     /home/hayden/ \
     $BACKUP_PATH/full

@@ -12,7 +12,7 @@ end
 
 # set -x PYTHONDONTWRITEBYTECODE 1 # no .pyc files
 set -x NVM_DIR ~/dotfiles/nvm
-test -f $NVM_DIR/nvm.sh; bass source $NVM_DIR/nvm.sh --no-use ';' nvm use 14 --silent
+test -f $NVM_DIR/nvm.sh; bass source $NVM_DIR/nvm.sh --no-use ';' nvm use 16 --silent
 set -x EDITOR vim
 
 command -sq direnv; and eval (direnv hook fish)
