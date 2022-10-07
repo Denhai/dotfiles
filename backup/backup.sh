@@ -4,8 +4,10 @@
 set -e
 set -x
 
+echo $(date)
+
 DAY=$(date +%A)
-BACKUP_PATH=/media/hayden/nvme2
+BACKUP_PATH=/media/hayden/nvme2/backup
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
 if [ -e $BACKUP_PATH/$DAY ] ; then
