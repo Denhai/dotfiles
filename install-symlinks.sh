@@ -12,6 +12,7 @@ done
 
 # These are different because they don't symlink into the root of the home folder
 ln -snv ~/dotfiles/ssh_config ~/.ssh/config
+ln -snv ~/dotfiles/editorconfig ~/.editorconfig
 ln -snv ~/dotfiles/fish ~/.config/fish
 ln -snv ~/dotfiles/starship.toml ~/.config/starship.toml
 
