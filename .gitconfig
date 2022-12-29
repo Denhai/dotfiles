@@ -26,12 +26,12 @@
   bd = branch -d
   c = commit --verbose
   ca = commit -a --verbose
-  co = checkout
-  cob = checkout -b
+  co = switch
+  cob = switch -c
   # https://stackoverflow.com/questions/66232497/git-alias-which-works-for-main-or-master-or-other
   main-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
   remotesh = remote set-head origin --auto
-  com = "!f(){ git checkout $(git main-branch) $@;}; f"
+  com = "!f(){ git switch $(git main-branch) $@;}; f"
   d = diff
   ds = diff --stat
   l = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human
