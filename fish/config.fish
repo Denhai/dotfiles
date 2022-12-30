@@ -28,6 +28,8 @@ set fish_function_path ~/.config/fish/z/functions $fish_function_path
 source ~/.config/fish/z/conf.d/z.fish
 
 alias g git
+alias docker-compose "docker compose"
+alias dc "docker compose"
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 command -sq starship; and starship init fish | source
