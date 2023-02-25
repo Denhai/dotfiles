@@ -8,6 +8,7 @@ gpg --export-secret-keys --armor > gpg-secret.asc
 # gpg --list-secret-keys
 
 # Restore:
+# brew install gnupg
 gpg --import /path/to/gpg-secret.asc
 # Trust:
 gpg --edit-key name # Replace "name" with yours
@@ -22,6 +23,7 @@ git clone git@github.com:Denhai/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 git submodule update --init --recursive
 apt install git-crypt
+# brew install git-crypt
 git-crypt unlock # need to first, gpg --import
 ```
 
