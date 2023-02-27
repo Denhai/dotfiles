@@ -17,3 +17,16 @@ export EDITOR="/Applications/Visual Studio Code.app/Contents/MacOS/Electron"
 # fnm (nvm) https://github.com/Schniz/fnm
 eval "$(fnm env --use-on-cd)"
 alias nvm="fnm"
+
+# zsh shell hook
+eval "$(direnv hook zsh)"
+
+# zsh restore (venv) prompt
+setopt PROMPT_SUBST
+
+show_virtual_env() {
+  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
+    echo "($(basename $VIRTUAL_ENV))"
+  fi
+}
+PS1='$(show_virtual_env)'$PS1
