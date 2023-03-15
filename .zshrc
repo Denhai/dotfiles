@@ -6,7 +6,7 @@ POSSIBLE_PATH=(
 )
 
 for p in $POSSIBLE_PATH; do
-  echo $p
+  path+=$p
 done
 
 export EDITOR="/Applications/Visual Studio Code.app/Contents/MacOS/Electron"
