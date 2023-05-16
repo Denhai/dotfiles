@@ -2,8 +2,9 @@
 # universal variables are saved in ~/.config/fish/fishd.(hostname)
 set GOPATH $HOME/go
 set -x GEM_HOME $HOME/.ruby
+set OSX_PATH /opt/homebrew/bin /opt/homebrew/sbin
 set POSSIBLE_PATH ~/bin ~/dotfiles/bin ~/dotfiles/fzf/bin ./node_modules/.bin ~/.local/bin ~/.rvm/bin $HOME/go $GOPATH/bin $HOME/.cargo/bin $HOME/.rvm/bin $GEM_HOME/bin ~/Library/Android/sdk/platform-tools /home/linuxbrew/.linuxbrew/bin /home/linuxbrew/.linuxbrew/sbin ~/.cargo/bin
-for p in $POSSIBLE_PATH
+for p in $POSSIBLE_PATH $OSX_PATH
     if test -d $p
         set -x PATH $PATH $p
     end
