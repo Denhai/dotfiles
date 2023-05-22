@@ -27,3 +27,4 @@ venv*
 .minikube
 .steam
 .vscode/extensions
+/.docker
