@@ -45,3 +45,6 @@ fi
 fpath+=~/dotfiles/zsh
 
 autoload fbr fco
+
+alias g="git"
+alias dc="docker compose"
