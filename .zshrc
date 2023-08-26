@@ -30,3 +30,14 @@ show_virtual_env() {
   fi
 }
 PS1='$(show_virtual_env)'$PS1
+
+# Required to load completions
+autoload bashcompinit
+bashcompinit
+autoload compinit
+compinit
+
+# Load Angular CLI autocompletion.
+if command -v ng >/dev/null 2>&1; then
+  source <(ng completion script)
+fi

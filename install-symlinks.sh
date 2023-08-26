@@ -3,7 +3,7 @@
 # Make sure container folders exist
 mkdir -p ~/.config ~/.ipython/profile_default
 
-FILES_TO_SYMLINK=".gitignore_global .gitconfig .vimrc .tmux.conf .imwheelrc .sqliterc .psqlrc .ipython/profile_default/ipython_config.py .bashrc .bash_aliases .bash_profile .inputrc .zshrc .zprofile"
+FILES_TO_SYMLINK=".gitignore_global .gitconfig .vimrc .tmux.conf .imwheelrc .sqliterc .psqlrc .ipython/profile_default/ipython_config.py .bashrc .bash_aliases .bash_profile .inputrc .zshrc .zprofile .fzf.zsh"
 
 for i in $FILES_TO_SYMLINK; do
     # -n don't follow symlinks whem making them (helpful when replacing links to directories)
