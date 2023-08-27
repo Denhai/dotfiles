@@ -1,0 +1,33 @@
+function git-delete-local-gone {
+    # Pruning
+    git fetch --prune
+
+    # Collect branches
+    branches=($(git for-each-ref --sort=-committerdate --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'))
+
+    # No branches
+    if [ ${#branches[@]} -eq 0 ]; then
+        echo "No branches to delete"
+        return
+    fi
+
+    # Print branches
+    for branch in "${branches[@]}"
+    do
+        echo "$branch"
+    done
+
+    # Confirm delete
+    echo "Delete branches (y/n)"
+    read answer
+
+    case $answer in
+        Y|y)
+            echo "Deleting branches"
+            for branch in "${branches[@]}"
+            do
+                git branch -D "$branch"
+            done
+            ;;
+    esac
+}
