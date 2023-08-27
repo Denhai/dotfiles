@@ -9,8 +9,6 @@ for p in $POSSIBLE_PATH; do
   path+=$p
 done
 
-export EDITOR="/Applications/Visual Studio Code.app/Contents/MacOS/Electron"
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -48,3 +46,6 @@ autoload fbr fco
 
 alias g="git"
 alias dc="docker compose"
+
+# Gets set to vi mode in VSCode if $EDITOR contains "Vi"sual Studio Code
+bindkey -e
