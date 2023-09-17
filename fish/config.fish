@@ -3,18 +3,21 @@
 set GOPATH $HOME/go
 set -x GEM_HOME $HOME/.ruby
 set OSX_PATH /opt/homebrew/bin /opt/homebrew/sbin
-set POSSIBLE_PATH ~/bin ~/dotfiles/bin ~/dotfiles/fzf/bin ./node_modules/.bin ~/.local/bin ~/.rvm/bin $HOME/go $GOPATH/bin $HOME/.cargo/bin $HOME/.rvm/bin $GEM_HOME/bin ~/Library/Android/sdk/platform-tools /home/linuxbrew/.linuxbrew/bin /home/linuxbrew/.linuxbrew/sbin ~/.cargo/bin
+set -x VOLTA_HOME "$HOME/.volta"
+set POSSIBLE_PATH ~/bin ~/dotfiles/bin ~/dotfiles/fzf/bin ~/.local/bin $VOLTA_HOME/bin $GOPATH/bin ~/.cargo/bin ~/.rvm/bin $GEM_HOME/bin ~/Library/Android/sdk/platform-tools /home/linuxbrew/.linuxbrew/bin /home/linuxbrew/.linuxbrew/sbin
 for p in $POSSIBLE_PATH $OSX_PATH
     if test -d $p
-        set -x PATH $PATH $p
+        # By default it uses -U (univeral), -g (global) simplifies debugging and path removal
+        fish_add_path -g $p
     end
 end
 # path is also changed by files in /etc/profile.d
 
 # set -x PYTHONDONTWRITEBYTECODE 1 # no .pyc files
 
-set -gx VOLTA_HOME "$HOME/.volta"
-set -gx PATH "$VOLTA_HOME/bin" $PATH
+# for direnv
+set -x NODE_VERSIONS $VOLTA_HOME/tools/image/node
+set -x NODE_VERSION_PREFIX
 
 set -x EDITOR vim
 

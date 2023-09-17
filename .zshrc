@@ -1,8 +1,15 @@
+# node
+export VOLTA_HOME="$HOME/.volta"
+# for direnv
+export NODE_VERSIONS=$VOLTA_HOME/tools/image/node
+export NODE_VERSION_PREFIX=
+
 POSSIBLE_PATH=(
   "~/bin"
   "~/dotfiles/bin"
   # Also added by ~/.fzf.zsh
   "~/dotfiles/fzf/bin"
+  "$VOLTA_HOME/bin"
 )
 
 for p in $POSSIBLE_PATH; do
@@ -11,10 +18,6 @@ done
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
 # zsh shell hook
 eval "$(direnv hook zsh)"
 
