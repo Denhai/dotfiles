@@ -25,7 +25,9 @@ eval "$(direnv hook zsh)"
 setopt PROMPT_SUBST
 
 show_virtual_env() {
-  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
+  # _OLD_VIRTUAL_PS1 checks if `source venv/bin/activate` has already run (by
+  # vscode). This prevents adding (venv) prefix to the prompt twice.
+  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" && -z "$_OLD_VIRTUAL_PS1" ]]; then
     echo "($(basename $VIRTUAL_ENV))"
   fi
 }
