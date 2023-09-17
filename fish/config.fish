@@ -4,8 +4,19 @@ set GOPATH $HOME/go
 set -x GEM_HOME $HOME/.ruby
 set OSX_PATH /opt/homebrew/bin /opt/homebrew/sbin
 set -x VOLTA_HOME "$HOME/.volta"
-set POSSIBLE_PATH ~/bin ~/dotfiles/bin ~/dotfiles/fzf/bin ~/.local/bin $VOLTA_HOME/bin $GOPATH/bin ~/.cargo/bin ~/.rvm/bin $GEM_HOME/bin ~/Library/Android/sdk/platform-tools /home/linuxbrew/.linuxbrew/bin /home/linuxbrew/.linuxbrew/sbin
+set POSSIBLE_PATH \
+~/bin \
+~/dotfiles/bin \
+~/dotfiles/fzf/bin \
+~/.local/bin \
+$VOLTA_HOME/bin \
+$GOPATH/bin \
+~/.cargo/bin \
+~/.rvm/bin \
+$GEM_HOME/bin
+
 for p in $POSSIBLE_PATH $OSX_PATH
+    # Check if the directory exists
     if test -d $p
         # By default it uses -U (univeral), -g (global) simplifies debugging and path removal
         fish_add_path -g $p
@@ -18,8 +29,6 @@ end
 # for direnv
 set -x NODE_VERSIONS $VOLTA_HOME/tools/image/node
 set -x NODE_VERSION_PREFIX
-
-set -x EDITOR vim
 
 command -sq direnv; and eval (direnv hook fish)
 
