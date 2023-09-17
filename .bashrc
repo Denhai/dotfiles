@@ -119,14 +119,9 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/dotfiles/z/z.sh ] && source ~/dotfiles/z/z.sh
 
-# export NVM_DIR="$HOME/dotfiles/nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
-alias nvm="fnm"
-# fnm
-export PATH=/home/hayden/.fnm:$PATH
-[ -x "$(command -v fnm)" ] && eval "$(fnm env --multi)"
 # direnv
 [ -x "$(command -v direnv)" ] && eval "$(direnv hook bash)"
 [ -x "$(command -v starship)" ] && eval "$(starship init bash)"

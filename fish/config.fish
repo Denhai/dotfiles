@@ -12,8 +12,10 @@ end
 # path is also changed by files in /etc/profile.d
 
 # set -x PYTHONDONTWRITEBYTECODE 1 # no .pyc files
-set -x NVM_DIR ~/dotfiles/nvm
-test -f $NVM_DIR/nvm.sh; bass source $NVM_DIR/nvm.sh --no-use ';' nvm use 16 --silent
+
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH
+
 set -x EDITOR vim
 
 command -sq direnv; and eval (direnv hook fish)

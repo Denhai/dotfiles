@@ -12,9 +12,8 @@ done
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# fnm (nvm) https://github.com/Schniz/fnm
-eval "$(fnm env --use-on-cd)"
-alias nvm="fnm"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 # zsh shell hook
 eval "$(direnv hook zsh)"
