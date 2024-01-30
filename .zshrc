@@ -45,8 +45,8 @@ if command -v ng >/dev/null 2>&1; then
 fi
 
 fpath+=~/dotfiles/zsh
-
-autoload fbr fco
+# (:t) removes the path and only keeps the filename, for example it will call `autoload -U fbr` instead of `autoload -U ~/dotfiles/zsh/fbr`
+autoload -U ~/dotfiles/zsh/*(:t)
 
 alias g="git"
 alias dc="docker compose"

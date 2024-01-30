@@ -13,10 +13,11 @@
   default = simple
 [pull]
   rebase = true
+  autostash = true
 [core]
   excludesfile = ~/.gitignore_global
   commentchar = ";" # because commits are commonly prefixed with hash-issue number #1234
-  editor = code --wait
+	editor = code --wait
 [alias]
   a = add
   aa = add --all
@@ -76,3 +77,7 @@
   required = true
 [merge]
   conflictStyle = diff3
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE

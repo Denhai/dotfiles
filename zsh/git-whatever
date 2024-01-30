@@ -1,0 +1,5 @@
+git-whatever() {
+    git add --all
+    local message=$(git status --short)
+    git commit -m "$message"
+}
