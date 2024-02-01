@@ -4,17 +4,17 @@ export VOLTA_HOME="$HOME/.volta"
 export NODE_VERSIONS=$VOLTA_HOME/tools/image/node
 export NODE_VERSION_PREFIX=
 
-POSSIBLE_PATH=(
-  "~/bin"
-  "~/dotfiles/bin"
-  # Also added by ~/.fzf.zsh
-  "~/dotfiles/fzf/bin"
+path=(
+  $path
+  # OSX paths
+  "/opt/homebrew/bin"
+  "/opt/homebrew/sbin"
+  # Paths
+  "$HOME/bin"
+  "$HOME/dotfiles/bin"
+  "$HOME/dotfiles/fzf/bin"
   "$VOLTA_HOME/bin"
 )
-
-for p in $POSSIBLE_PATH; do
-  path+=$p
-done
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -34,17 +34,15 @@ show_virtual_env() {
 PS1='$(show_virtual_env)'$PS1
 
 # Required to load completions
-autoload bashcompinit
-bashcompinit
-autoload compinit
-compinit
+autoload bashcompinit && bashcompinit
+autoload compinit && compinit
 
 # Load Angular CLI autocompletion.
 if command -v ng >/dev/null 2>&1; then
   source <(ng completion script)
 fi
 
-fpath+=~/dotfiles/zsh
+fpath+=("$HOME/dotfiles/zsh")
 # (:t) removes the path and only keeps the filename, for example it will call `autoload -U fbr` instead of `autoload -U ~/dotfiles/zsh/fbr`
 autoload -U ~/dotfiles/zsh/*(:t)
 

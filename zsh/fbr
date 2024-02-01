@@ -1,9 +1,19 @@
 # fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
 fbr() {
+  if ! git rev-parse --git-dir > /dev/null 2>&1; then
+    echo "Error: Not a git repository."
+    return 1
+  fi
+
   local branches branch
-  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ refs/remotes/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |
            fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+  branch=$(echo "$branch" | sed "s#remotes/[^/]*/##" | sed 's/origin\///') # Clean up remote branch names
+
+  if [ -n "$branch" ]; then # Check if a branch was selected
+    git switch "$branch"
+  else
+    echo "No branch selected."
+  fi
 }
-# https://github.com/junegunn/fzf/wiki/examples#git
