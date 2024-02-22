@@ -1,3 +1,4 @@
 # https://www.agwa.name/projects/git-crypt/
 ssh_config filter=git-crypt diff=git-crypt
 secrets/** filter=git-crypt diff=git-crypt
+zsh/** linguist-language=Shell
