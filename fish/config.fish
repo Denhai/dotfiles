@@ -5,15 +5,19 @@ set -x GEM_HOME $HOME/.ruby
 set OSX_PATH /opt/homebrew/bin /opt/homebrew/sbin
 set -x VOLTA_HOME "$HOME/.volta"
 set POSSIBLE_PATH \
-~/bin \
-~/dotfiles/bin \
-~/dotfiles/fzf/bin \
-~/.local/bin \
-$VOLTA_HOME/bin \
-$GOPATH/bin \
-~/.cargo/bin \
-~/.rvm/bin \
-$GEM_HOME/bin
+    ~/bin \
+    ~/dotfiles/bin \
+    ~/dotfiles/fzf/bin \
+    ~/.local/bin \
+    $VOLTA_HOME/bin \
+    $GOPATH/bin \
+    ~/.cargo/bin \
+    ~/.rvm/bin \
+    $GEM_HOME/bin \
+    /opt/homebrew/opt/ruby/bin \
+    /opt/homebrew/opt/sqlite/bin \
+    ~/dev/android/platform-tools
+# /opt/homebrew/lib/ruby/gems/3.3.0/bin
 
 for p in $POSSIBLE_PATH $OSX_PATH
     # Check if the directory exists
@@ -51,3 +55,9 @@ command -sq starship; and starship init fish | source
 
 # Remove the greeting message
 set fish_greeting
+
+# Homebrew
+if test -e /opt/homebrew/bin/brew
+    set -x HOMEBREW_NO_AUTO_UPDATE 1
+    eval (/opt/homebrew/bin/brew shellenv)
+end

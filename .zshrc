@@ -9,11 +9,16 @@ path=(
   # OSX paths
   "/opt/homebrew/bin"
   "/opt/homebrew/sbin"
+  "/opt/homebrew/opt/openjdk@11/bin"
   # Paths
   "$HOME/bin"
+  "$HOME/.local/bin"
   "$HOME/dotfiles/bin"
   "$HOME/dotfiles/fzf/bin"
   "$VOLTA_HOME/bin"
+  "./node_modules/.bin"
+  "$HOME/dev/android/platform-tools"
+  "/opt/homebrew/opt/ruby/bin"
 )
 
 # fzf
@@ -42,12 +47,25 @@ if command -v ng >/dev/null 2>&1; then
   source <(ng completion script)
 fi
 
+# Homebrew
+if [ -x /opt/homebrew/bin/brew ]; then
+  export HOMEBREW_NO_AUTO_UPDATE=1
+  eval $(/opt/homebrew/bin/brew shellenv)
+fi
+
 fpath+=("$HOME/dotfiles/zsh")
 # (:t) removes the path and only keeps the filename, for example it will call `autoload -U fbr` instead of `autoload -U ~/dotfiles/zsh/fbr`
-autoload -U ~/dotfiles/zsh/*(:t)
+  autoload -U ~/dotfiles/zsh/*(:t)
 
 alias g="git"
 alias dc="docker compose"
+alias rm="rm -i"
 
 # Gets set to vi mode in VSCode if $EDITOR contains "Vi"sual Studio Code
 bindkey -e
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/hayden/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
