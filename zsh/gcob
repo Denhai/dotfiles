@@ -1,0 +1,17 @@
+# gcob - create and switch to a new git branch
+gcob() {
+  if ! git rev-parse --git-dir >/dev/null 2>&1; then
+    echo "Error: Not a git repository."
+    return 1
+  fi
+
+  local branch_name
+  read "branch_name?Branch name: " || return
+
+  if [[ -z "$branch_name" ]]; then
+    echo "Branch name is required."
+    return 1
+  fi
+
+  git switch -c "$branch_name"
+}

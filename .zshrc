@@ -1,3 +1,22 @@
+# Claude Code / VSCode terminal: minimal environment (skip interactive/slow setup)
+if [[ -n "$CLAUDECODE" || -n "$COPILOT" ]]; then
+  export VOLTA_HOME="$HOME/.volta"
+  path=(
+    $path
+    "/opt/homebrew/bin"
+    "/opt/homebrew/sbin"
+    "$HOME/bin"
+    "$HOME/.local/bin"
+    "$HOME/dotfiles/bin"
+    "$VOLTA_HOME/bin"
+    "./node_modules/.bin"
+    "/Users/hayden/.antigravity/antigravity/bin"
+  )
+  eval "$(direnv hook zsh)"
+  eval $(/opt/homebrew/bin/brew shellenv bash)
+  return
+fi
+
 # node
 export VOLTA_HOME="$HOME/.volta"
 # for direnv
@@ -50,12 +69,12 @@ fi
 # Homebrew
 if [ -x /opt/homebrew/bin/brew ]; then
   export HOMEBREW_NO_AUTO_UPDATE=1
-  eval $(/opt/homebrew/bin/brew shellenv)
+  eval $(/opt/homebrew/bin/brew shellenv bash)
 fi
 
 fpath+=("$HOME/dotfiles/zsh")
 # (:t) removes the path and only keeps the filename, for example it will call `autoload -U fbr` instead of `autoload -U ~/dotfiles/zsh/fbr`
-  autoload -U ~/dotfiles/zsh/*(:t)
+autoload -U ~/dotfiles/zsh/*(:t)
 
 alias g="git"
 alias dc="docker compose"
@@ -63,6 +82,10 @@ alias rm="rm -i"
 
 # Gets set to vi mode in VSCode if $EDITOR contains "Vi"sual Studio Code
 bindkey -e
+
+# Fix option + left/right arrow keys in vscode
+bindkey '\e[1;3D' backward-word
+bindkey '\e[1;3C' forward-word
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/hayden/.docker/completions $fpath)
