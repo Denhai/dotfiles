@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+assignee="${1:-}"
+
+if [[ -z "$assignee" ]]; then
+  echo "Usage: pr-assign-after-green cicerotcs"
+  echo "cicerotcs or bnair2001 or denhai"
+  exit 1
+fi
+
+pr_number="$(gh pr view --json number --jq .number)"
+pr_url="$(gh pr view "$pr_number" --json url --jq .url)"
+
+echo "Watching PR #$pr_number"
+echo "$pr_url"
+
+gh pr checks "$pr_number" --watch
+
+gh pr edit "$pr_number" --add-assignee "$assignee" --remove-assignee "@me"
+
+echo "Assigned PR #$pr_number to $assignee and unassigned @me"
